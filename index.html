@@ -1,155 +1,194 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <title>Khder Ahmed | Portfolio</title>
+    <title>Khder Ahmed | Software Engineer Portfolio</title>
     <style>
-        /* الخلفية المتدرجة الزرقاء كما في الصورة */
         body {
-            background: linear-gradient(180deg, #001f3f 0%, #0074d9 50%, #001f3f 100%);
+            background: radial-gradient(circle at top right, #001f3f, #000814), 
+                        linear-gradient(180deg, #000814 0%, #003366 100%);
             background-attachment: fixed;
             min-height: 100vh;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #e2e8f0;
         }
 
-        /* تأثير الزجاج (Glassmorphism) */
-        .glass-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* تصميم المهارات كبطاقات صغيرة */
-        .skill-item {
-            background: rgba(255, 255, 255, 0.15);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #fff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* الأيقونات الدائرية المتوهجة */
-        .social-icon {
-            width: 50px;
-            height: 50px;
+        .section-title {
+            color: #38bdf8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-left: 4px solid #38bdf8;
+            padding-left: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(56, 189, 248, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-size: 1.5rem;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 116, 217, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
         }
 
-        .social-icon:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        .social-link:hover {
+            background: #38bdf8;
+            color: #000;
+            transform: scale(1.1);
         }
 
-        .profile-border {
-            border: 3px solid rgba(255, 255, 255, 0.4);
-            padding: 5px;
+        .exp-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body class="text-white antialiased">
+<body class="antialiased py-10 px-4">
 
-    <div class="container mx-auto px-4 py-12 max-w-4xl">
-        <div class="glass-container p-8 md:p-12 relative">
+    <main class="max-w-5xl mx-auto">
+        <div class="glass-card overflow-hidden">
             
-            <div class="flex justify-center -mt-24 md:-mt-28 mb-6">
-                <div class="rounded-full profile-border">
-                    <img alt="Khder Ahmed" 
-                         src="./assets/img/team-2-800x800.jpg" 
-                         class="rounded-full w-32 h-32 md:w-40 md:h-40 object-cover bg-gray-900 shadow-2xl" />
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 md:p-12 border-b border-white border-opacity-5">
+                <div class="flex justify-center md:justify-start">
+                    <img src="./assets/img/team-2-800x800.jpg" alt="Khder Ahmed" 
+                         class="w-40 h-40 rounded-2xl object-cover border-2 border-blue-500 shadow-2xl shadow-blue-500/20" />
                 </div>
-            </div>
-
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold tracking-wide mb-2">Khder Ahmed</h1>
-                <p class="flex items-center justify-center text-sm opacity-90 mb-1">
-                    <i class="fas fa-map-marker-alt ml-2 text-blue-300"></i> Tartous/Syria
-                </p>
-                <p class="flex items-center justify-center text-sm opacity-90 mb-1">
-                    <i class="fas fa-briefcase ml-2 text-blue-300"></i> Back-End Developer
-                </p>
-                <p class="flex items-center justify-center text-sm opacity-90 leading-relaxed">
-                    <i class="fas fa-university ml-2 text-blue-300"></i> Tartous University - Information Technology Engineering
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start border-t border-white border-opacity-10 pt-8">
                 
-                <div class="text-right">
-                    <h2 class="text-xl font-semibold mb-4 border-b border-blue-400 pb-2 inline-block">عن المطور</h2>
-                    <p class="text-sm leading-relaxed opacity-80">
-                        مطور ويب بخبرة سنتين في بناء تطبيقات برمجية متطورة. أركز على تقديم تجربة مستخدم سلسة ووظائف باك-إند قوية باستخدام أحدث التقنيات لضمان نجاح المشاريع.
-                    </p>
-                </div>
-
-                <div>
-                    <h2 class="text-xl font-semibold mb-4 border-b border-blue-400 pb-2 inline-block">Technical Skills</h2>
-                    <div class="grid grid-cols-3 gap-3 mt-2">
-                        <div class="skill-item">JavaScript</div>
-                        <div class="skill-item">Laravel</div>
-                        <div class="skill-item">MySQL</div>
-                        <div class="skill-item">GitHub</div>
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">PHP Pure</div>
-                        <div class="skill-item">Bootstrap</div>
-                        <div class="skill-item">Java</div>
-                        <div class="skill-item">CSS/HTML</div>
+                <div class="md:col-span-2 text-center md:text-left">
+                    <h1 class="text-5xl font-extrabold text-white mb-2">Khder Ahmed</h1>
+                    <p class="text-blue-400 text-xl font-medium mb-6">Back-End Developer & IT Engineer</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm opacity-80">
+                        <a href="mailto:khder7897@gmail.com" class="flex items-center justify-center md:justify-start hover:text-blue-400 transition">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i> khder7897@gmail.com
+                        </a>
+                        <a href="tel:0988085317" class="flex items-center justify-center md:justify-start hover:text-blue-400 transition">
+                            <i class="fas fa-phone mr-3 text-blue-400"></i> +963 988 085 317
+                        </a>
+                        <p class="flex items-center justify-center md:justify-start">
+                            <i class="fas fa-map-marker-alt mr-3 text-blue-400"></i> Tartous, Syria
+                        </p>
+                        <a href="https://github.com/KhderAhmed/" target="_blank" class="flex items-center justify-center md:justify-start hover:text-blue-400 transition">
+                            <i class="fab fa-github mr-3 text-blue-400"></i> github.com/KhderAhmed
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-16 text-center">
-                <p class="text-sm uppercase tracking-widest opacity-60 mb-6">Visit My Accounts</p>
-                <div class="flex flex-wrap justify-center gap-5">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 p-8 md:p-12">
+                
+                <div class="lg:col-span-2 space-y-12">
                     
-                    <a href="https://github.com/KhderAhmed/" target="_blank" class="social-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <section>
+                        <h2 class="section-title">Professional Summary</h2>
+                        <p class="leading-relaxed opacity-90 text-lg">
+                            Highly skilled web developer with 2 years of experience designing and implementing fast and intuitive websites and web applications. Proficient in Back-End technologies with a focus on delivering seamless user experiences and advanced functionality.
+                        </p>
+                    </section>
 
-                    <a href="https://www.linkedin.com/in/khder-ahmed-b46274286/" target="_blank" class="social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+                    <section>
+                        <h2 class="section-title">Tasks Accomplished</h2>
+                        <div class="space-y-6">
+                            <div class="exp-item">
+                                <h3 class="text-white font-bold">Project Development Assistance</h3>
+                                <p class="text-sm opacity-70 mb-2 italic">Collaboration with Senior Developers</p>
+                                <ul class="list-disc list-inside space-y-2 text-sm opacity-80">
+                                    <li>Built and tested site features, contributing to the launch of 3 client projects.</li>
+                                    <li>Conducted code reviews to resolve bugs and optimize development processes.</li>
+                                    <li>Integrated React frameworks to enhance front-end interactivity.</li>
+                                    <li>Ensured project delivery within strict timelines and budget constraints.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
 
-                    <a href="https://www.facebook.com/profile.php?id=100085681335172" target="_blank" class="social-icon" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
+                <div class="space-y-10">
+                    
+                    <section>
+                        <h2 class="section-title text-sm">Technical Skills</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">PHP / Laravel</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">TailwindCSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </section>
 
-                    <a href="#" target="_blank" class="social-icon" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                    <section>
+                        <h2 class="section-title text-sm">Education</h2>
+                        <div>
+                            <p class="text-white font-bold">Tartous University</p>
+                            <p class="text-sm opacity-80 italic">B.Sc. Information Technology Engineering</p>
+                        </div>
+                    </section>
 
-                    <a href="mailto:your-email@example.com" class="social-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <section>
+                        <h2 class="section-title text-sm">Languages</h2>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Arabic</span>
+                                <span class="text-blue-400">Native</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>English</span>
+                                <span class="text-blue-400">Professional</span>
+                            </div>
+                        </div>
+                    </section>
 
+                    <section class="pt-6">
+                        <div class="flex justify-center lg:justify-start gap-4">
+                            <a href="https://github.com/KhderAhmed/" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/khder-ahmed-b46274286/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100085681335172" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </section>
                 </div>
             </div>
 
-            <div class="mt-12 pt-6 border-t border-white border-opacity-10 text-center text-xs opacity-40">
-                Khder Ahmed 2024 © All Rights Reserved
-            </div>
+            <footer class="bg-black bg-opacity-20 p-6 text-center text-xs opacity-50 tracking-widest uppercase">
+                &copy; 2024 Khder Ahmed | Built with passion & clean code
+            </footer>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
