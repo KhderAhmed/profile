@@ -1,123 +1,253 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <title>Khder Ahmed | Portfolio</title>
+    <title>Khder Ahmed | Engineer Portfolio</title>
     <style>
-        /* تأثير الزجاج - Glassmorphism */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --dark-deep: #020617;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            background-attachment: fixed;
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-deep);
+            color: #f1f5f9;
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
         }
 
-        .skill-badge {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+        /* خلفية نيون متحركة بضبابية عالية */
+        .neon-background {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 30%, #0f172a 0%, #020617 100%);
         }
 
-        .skill-badge:hover {
-            background: rgba(255, 255, 255, 0.25);
+        .glow-orb {
+            position: absolute;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            filter: blur(150px);
+            opacity: 0.12;
+            animation: drift 20s infinite alternate;
+        }
+
+        @keyframes drift {
+            from { transform: translate(-10%, -10%) scale(1); }
+            to { transform: translate(20%, 20%) scale(1.1); }
+        }
+
+        /* البطاقة الزجاجية */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* عناوين الأقسام بنمط النيون */
+        .section-title {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--neon-blue);
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 30px; height: 2px;
+            background: var(--neon-blue);
+            margin-right: 10px;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* مهارات تفاعلية */
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            transition: 0.3s all ease;
+            cursor: default;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--neon-blue);
+            background: rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
             transform: translateY(-3px);
         }
 
-        .profile-img {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            transition: transform 0.4s ease;
-        }
-        
-        .profile-img:hover {
-            transform: scale(1.05);
+        /* خط زمني للمهام والتعليم */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .social-btn {
-            transition: all 0.3s ease;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px; top: 8px;
+            width: 9px; height: 9px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-blue);
         }
 
-        .social-btn:hover {
-            transform: translateY(-5px);
-            filter: brightness(1.2);
+        .contact-link:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
         }
     </style>
 </head>
-<body class="text-white antialiased">
+<body class="p-4 md:p-8">
 
-    <main class="flex items-center justify-center min-h-screen py-10 px-4">
-        <div class="glass-card w-full max-w-4xl rounded-3xl overflow-hidden relative">
+    <div class="neon-background">
+        <div class="glow-orb"></div>
+        <div class="glow-orb" style="right: 0; bottom: 0; background: var(--neon-purple); opacity: 0.08;"></div>
+    </div>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="glass-panel overflow-hidden">
             
-            <div class="h-48 w-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-30"></div>
-
-            <div class="px-6 pb-10">
-                <div class="flex flex-wrap justify-center">
-                    <div class="w-full flex justify-center -mt-24">
-                        <img alt="Khder Ahmed" 
-                             src="./assets/img/team-2-800x800.jpg" 
-                             class="profile-img shadow-2xl rounded-full w-40 h-40 object-cover bg-gray-800" />
-                    </div>
-
-                    <div class="w-full text-center mt-6">
-                        <h1 class="text-4xl font-bold leading-tight mb-2">خضر أحمد</h1>
-                        <div class="flex items-center justify-center text-blue-200 font-medium mb-4">
-                            <i class="fas fa-briefcase ml-2"></i> مطور باك-إند (Back-End Developer)
-                        </div>
-                        
-                        <div class="flex flex-wrap justify-center gap-4 text-sm opacity-90">
-                            <span class="flex items-center"><i class="fas fa-map-marker-alt ml-2"></i> طرطوس، سوريا</span>
-                            <span class="flex items-center"><i class="fas fa-university ml-2"></i> جامعة طرطوس - هندسة تقنية المعلومات</span>
-                        </div>
+            <header class="p-8 md:p-12 bg-white bg-opacity-5 flex flex-col md:flex-row items-center gap-8 border-b border-white border-opacity-5">
+                <img src="./assets/img/team-2-800x800.jpg" alt="Khder Ahmed" 
+                     class="w-40 h-40 rounded-full object-cover border-4 border-gray-800 shadow-2xl" />
+                
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-5xl font-black mb-2">KHDER AHMED</h1>
+                    <p class="text-blue-400 font-bold text-lg mb-6 uppercase tracking-widest">Information Technology Engineer</p>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-start gap-y-3 gap-x-8 text-sm opacity-80">
+                        <span class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-400"></i> Tartous, Syria</span>
+                        <a href="tel:0988085317" class="contact-link flex items-center"><i class="fas fa-phone-alt mr-2"></i> 0988085317</a>
+                        <a href="mailto:khder7897@gmail.com" class="contact-link flex items-center"><i class="fas fa-envelope mr-2"></i> khder7897@gmail.com</a>
+                        <a href="https://github.com/KhderAhmed/" target="_blank" class="contact-link flex items-center"><i class="fab fa-github mr-2"></i> GitHub Profile</a>
                     </div>
                 </div>
+            </header>
 
-                <div class="mt-10 py-6 border-t border-white border-opacity-10 text-center">
-                    <div class="flex justify-center">
-                        <div class="w-full lg:w-10/12 px-4">
-                            <p class="text-lg leading-relaxed mb-6 font-light">
-                                مطور ويب متمكن بخبرة سنتين في تصميم وتنفيذ تطبيقات ويب سريعة وسهلة الاستخدام. 
-                                شغوف ببناء الأنظمة القوية (Back-End) مع التركيز على الكفاءة البرمجية وتجربة المستخدم السلسة.
-                            </p>
-                            
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
-                                <div class="skill-badge p-2 rounded-lg">PHP / Laravel</div>
-                                <div class="skill-badge p-2 rounded-lg">Python</div>
-                                <div class="skill-badge p-2 rounded-lg">MySQL</div>
-                                <div class="skill-badge p-2 rounded-lg">JavaScript</div>
-                                <div class="skill-badge p-2 rounded-lg">Bootstrap</div>
-                                <div class="skill-badge p-2 rounded-lg">HTML5 / CSS3</div>
-                                <div class="skill-badge p-2 rounded-lg">Java</div>
-                                <div class="skill-badge p-2 rounded-lg">Pure PHP</div>
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                
+                <aside class="lg:col-span-4 p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white border-opacity-5 space-y-12">
+                    
+                    <section>
+                        <h2 class="section-title">Education</h2>
+                        <div class="space-y-1">
+                            <h3 class="text-white font-bold">Tartous University</h3>
+                            <p class="text-sm text-gray-400 italic">Faculty of Information Technology Engineering</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="section-title">Technical Expertise</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-500 mb-3 uppercase">Development Languages</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-pill">HTML</span> <span class="skill-pill">CSS</span>
+                                    <span class="skill-pill">JavaScript</span> <span class="skill-pill">PHP</span>
+                                    <span class="skill-pill">Python</span> <span class="skill-pill">Java</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-500 mb-3 uppercase">Frameworks</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-pill">Laravel</span> <span class="skill-pill">TailwindCSS</span> 
+                                    <span class="skill-pill">Bootstrap</span> <span class="skill-pill">React</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-gray-500 mb-3 uppercase">Databases</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-pill">MySQL</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
 
-                <div class="mt-8 flex justify-center gap-6">
-                    <a href="https://github.com/KhderAhmed/" class="social-btn text-3xl text-white">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/khder-ahmed-b46274286/" class="social-btn text-3xl text-blue-400">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100085681335172" class="social-btn text-3xl text-blue-600">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </div>
+                    <section>
+                        <h2 class="section-title">Language Proficiency</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm font-bold">Arabic <span class="text-blue-400 ml-2">(Native)</span></p>
+                                <p class="text-xs text-gray-500 mt-1 italic">Full ability to speak, understand, and write.</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">English <span class="text-blue-400 ml-2">(Professional)</span></p>
+                                <p class="text-xs text-gray-500 mt-1 italic">Ability to speak, understand, and write effectively.</p>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+
+                <article class="lg:col-span-8 p-8 md:p-12 space-y-16">
+                    
+                    <section>
+                        <h2 class="section-title">Professional Objective</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed font-light">
+                            Highly skilled web developer with <span class="text-white font-semibold">2 years of experience</span> designing and implementing fast and intuitive websites and web applications. I am proficient in <span class="text-white">Back-End technologies</span> with a focus on delivering a seamless user experience and advanced functionality. I have the ability to collaborate with cross-functional teams and clients with the goal of project success. I have a keen eye for detail and a commitment to following instructions.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="section-title">Tasks Accomplished</h2>
+                        <div class="space-y-8">
+                            <div class="timeline-item">
+                                <h3 class="text-white font-bold text-lg">Project Collaboration & Launch</h3>
+                                <p class="text-gray-400 mt-2">
+                                    Assisted senior developers in building and testing site features, contributing to the successful launch of <span class="text-blue-400 font-bold">three client projects</span>.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="text-white font-bold text-lg">Code Quality & Debugging</h3>
+                                <p class="text-gray-400 mt-2">
+                                    Conducted comprehensive code reviews and helped identify and resolve bugs and issues throughout the development process.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="text-white font-bold text-lg">Continuous Learning</h3>
+                                <p class="text-gray-400 mt-2">
+                                    Gained proficiency in backend frameworks and modern tools (e.g., <span class="text-blue-400">React</span>) through hands-on projects and intensive self-study.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="text-white font-bold text-lg">Team Collaboration</h3>
+                                <p class="text-gray-400 mt-2">
+                                    Collaborated with cross-functional teams to deliver projects within defined timelines and budget constraints.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="flex gap-6 pt-10 justify-center md:justify-start">
+                        <a href="https://github.com/KhderAhmed/" target="_blank" class="text-3xl opacity-60 hover:text-blue-400 transition hover:opacity-100"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-3xl opacity-60 hover:text-blue-400 transition hover:opacity-100"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-3xl opacity-60 hover:text-blue-400 transition hover:opacity-100"><i class="fab fa-facebook"></i></a>
+                        <a href="mailto:khder7897@gmail.com" class="text-3xl opacity-60 hover:text-blue-400 transition hover:opacity-100"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </article>
             </div>
 
-            <footer class="text-center py-4 bg-black bg-opacity-20 text-xs opacity-60">
-                &copy; 2024 خضر أحمد - جميع الحقوق محفوظة
+            <footer class="bg-black bg-opacity-30 p-6 text-center text-[10px] uppercase tracking-widest text-gray-600">
+                Designed by Khder Ahmed © 2024 • Engineer Portfolio
             </footer>
         </div>
     </main>
