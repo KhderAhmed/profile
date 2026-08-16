@@ -134,6 +134,21 @@
             filter: drop-shadow(0 0 10px var(--neon-blue));
         }
 
+        /* Neon CV Download Button Styling */
+        .cv-download-btn {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: #020617;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cv-download-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.8), 0 0 15px rgba(188, 19, 254, 0.6);
+            color: #000;
+        }
+
         li::marker {
             color: var(--neon-blue);
         }
@@ -154,6 +169,12 @@
                     <img src="./assets/img/team-2-800x800.jpg" alt="Khder Ahmed" class="w-48 h-48 rounded-3xl object-cover profile-img-glow mb-6" />
                     <h1 class="text-4xl font-black tracking-tighter text-white">KHDER AHMED</h1>
                     <p class="text-blue-400 font-bold tracking-widest mt-2 uppercase">IT Engineer</p>
+
+                    <!-- CV Download Button -->
+                    <a href="./assets/resume.pdf" download="Khder_Ahmed_CV.pdf" class="cv-download-btn inline-flex items-center gap-3 px-6 py-3 rounded-2xl font-black text-sm uppercase tracking-wider mt-6 transition-all duration-300">
+                        <i class="fas fa-file-pdf text-lg"></i>
+                        <span>Download CV</span>
+                    </a>
                 </div>
 
                 <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -269,7 +290,7 @@
                                 <p class="text-gray-200">Conducted code reviews and helped identify and resolve bugs and issues in the development process.</p>
                             </li>
                             <li class="pl-4">
-                                <p class="text-gray-200 font-semibold text-white">Gained proficiency in backend frameworks (e.g., React) through hands-on projects and self-study.</p>
+                                <p class="text-gray-200 font-semibold text-white">Gained proficiency in backend frameworks through hands-on projects and self-study.</p>
                             </li>
                             <li class="pl-4">
                                 <p class="text-gray-200">Collaborated with cross-functional teams to deliver projects within defined timelines and budget constraints.</p>
@@ -288,7 +309,7 @@
             </div>
 
             <footer class="bg-black bg-opacity-40 py-6 text-center text-[10px] uppercase tracking-[5px] opacity-40">
-                © Khder Ahmed 2024 • Syrian Software Engineer
+                © Khder Ahmed • Syrian Software Engineer
             </footer>
         </div>
     </main>
