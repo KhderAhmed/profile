@@ -360,6 +360,54 @@
             font-size: 0.88rem;
         }
 
+        /* Profile photo */
+        .profile-photo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            background: linear-gradient(
+                145deg,
+                rgba(23, 35, 59, 0.95),
+                rgba(17, 26, 46, 0.75)
+            );
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-photo-wrap {
+            width: min(100%, 320px);
+            aspect-ratio: 1 / 1;
+            padding: 7px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            box-shadow: 0 0 38px rgba(84, 225, 193, 0.18);
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 22px;
+            background: var(--surface-light);
+        }
+
+        .profile-photo-caption {
+            margin-top: 22px;
+            font-size: 1.08rem;
+            font-weight: 700;
+        }
+
+        .profile-photo-role {
+            margin-top: 5px;
+            color: var(--secondary);
+            font-size: 0.92rem;
+        }
+
         /* Shared cards */
 
         .card {
@@ -786,38 +834,22 @@
                     </div>
                 </div>
 
-                <aside class="hero-card" aria-label="Developer code example">
-                    <div class="code-window">
-                        <div class="window-bar" aria-hidden="true">
-                            <span class="window-dot"></span>
-                            <span class="window-dot"></span>
-                            <span class="window-dot"></span>
-                        </div>
-
-                        <div class="code-content">
-<pre><span class="code-purple">class</span> <span class="code-green">Developer</span>
-{
-    <span class="code-purple">public string</span> $name =
-        <span class="code-green">'Khder Ahmed'</span>;
-
-    <span class="code-purple">public array</span> $skills = [
-        <span class="code-green">'PHP'</span>,
-        <span class="code-green">'Laravel'</span>,
-        <span class="code-green">'REST APIs'</span>,
-        <span class="code-green">'SQL'</span>,
-    ];
-
-    <span class="code-purple">public function</span> <span class="code-blue">build</span>()
-    {
-        <span class="code-purple">return</span> <span class="code-green">'Useful software'</span>;
-    }
-}</pre>
-                        </div>
+                <aside class="profile-photo-card" aria-label="Khder Ahmed profile photo">
+                    <div class="profile-photo-wrap">
+                        <img
+                            class="profile-photo"
+                            src="assets/khder-ahmed.jpg"
+                            alt="Portrait of Khder Ahmed, PHP Backend Developer"
+                            width="640"
+                            height="640"
+                            fetchpriority="high"
+                        >
                     </div>
 
+                    <p class="profile-photo-caption">Khder Ahmed</p>
+                    <p class="profile-photo-role">PHP Backend Developer</p>
                     <p class="hero-card-note">
-                        Focused on backend development, clean code,
-                        and continuous learning.
+                        PHP · Laravel · REST APIs · Databases
                     </p>
                 </aside>
 
