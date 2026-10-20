@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Khder Ahmed — PHP Backend Developer specializing in PHP, Laravel, REST APIs, databases, and web application development."
+    >
+
+    <meta name="theme-color" content="#0b1020">
+
+    <title>Khder Ahmed | PHP Backend Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --bg: #0b1020;
+            --surface: #111a2e;
+            --surface-light: #17233b;
+            --text: #edf2ff;
+            --muted: #a7b3cc;
+            --primary: #7c9cff;
+            --secondary: #54e1c1;
+            --border: rgba(255, 255, 255, 0.10);
+            --radius: 18px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 10% 5%,
+                    rgba(70, 105, 210, 0.17),
+                    transparent 32rem
+                ),
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(39, 190, 164, 0.09),
+                    transparent 30rem
+                ),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--secondary);
+            outline-offset: 4px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(100% - 40px, var(--max-width));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 88px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 32px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--secondary);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 680px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* Navigation */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 16, 32, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.92rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Buttons */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 46px;
+            padding: 11px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.93rem;
+            border: 1px solid transparent;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: #08101b;
+            background: var(--secondary);
+        }
+
+        .button-primary:hover {
+            background: #78f1d5;
+        }
+
+        .button-secondary {
+            color: var(--text);
+            border-color: var(--border);
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0 86px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            align-items: center;
+            gap: 56px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            margin-bottom: 24px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(84, 225, 193, 0.5);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.6rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 660px;
+            margin-bottom: 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-card {
+            padding: 28px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            background: linear-gradient(
+                145deg,
+                rgba(23, 35, 59, 0.95),
+                rgba(17, 26, 46, 0.75)
+            );
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-window {
+            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            background: #0a1020;
+        }
+
+        .window-bar {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 13px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .window-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #ff7373;
+        }
+
+        .window-dot:nth-child(2) {
+            background: #ffd166;
+        }
+
+        .window-dot:nth-child(3) {
+            background: #54e1c1;
+        }
+
+        .code-content {
+            padding: 22px 18px;
+            overflow-x: auto;
+        }
+
+        .code-content pre {
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.85rem;
+            line-height: 2;
+            white-space: pre;
+        }
+
+        .code-purple {
+            color: #c5a5ff;
+        }
+
+        .code-green {
+            color: #8be9a8;
+        }
+
+        .code-blue {
+            color: #85c7ff;
+        }
+
+        .code-muted {
+            color: #73819f;
+        }
+
+        .hero-card-note {
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* Shared cards */
+
+        .card {
+            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: rgba(17, 26, 46, 0.72);
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(124, 156, 255, 0.4);
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 24px;
+        }
+
+        .about-text p + p {
+            margin-top: 16px;
+        }
+
+        .info-list {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-list li {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .info-label {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .info-value {
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            padding: 7px 11px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.035);
+            color: #dce5fa;
+            font-size: 0.86rem;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        .project-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 17px;
+        }
+
+        .project-icon {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: rgba(124, 156, 255, 0.13);
+            color: var(--primary);
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .project-status {
+            color: var(--secondary);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .project-card .tags {
+            margin-bottom: 22px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .text-link {
+            color: var(--secondary);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .text-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience and education */
+
+        .timeline {
+            display: grid;
+            gap: 18px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 25px 28px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        .timeline-item ul {
+            padding-left: 20px;
+            margin-top: 13px;
+            color: var(--muted);
+        }
+
+        .timeline-item li + li {
+            margin-top: 6px;
+        }
+
+        /* Languages */
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .language-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .language-card h3 {
+            font-size: 1rem;
+        }
+
+        .language-level {
+            color: var(--secondary);
+            font-size: 0.86rem;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Contact */
+
+        .contact-card {
+            padding: clamp(26px, 5vw, 48px);
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(
+                135deg,
+                rgba(124, 156, 255, 0.12),
+                rgba(84, 225, 193, 0.06)
+            );
+        }
+
+        .contact-card p {
+            max-width: 600px;
+            margin: 0 auto 24px;
+            color: var(--muted);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 26px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 850px) {
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                gap: 35px;
+            }
+
+            .hero-card {
+                max-width: 600px;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 0.83rem;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .container {
+                width: min(100% - 28px, var(--max-width));
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .nav-inner {
+                min-height: 68px;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                padding: 13px 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                gap: 16px;
+                overflow-x: auto;
+                padding-bottom: 2px;
+            }
+
+            .nav-links a {
+                white-space: nowrap;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.4px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .hero-actions .button {
+                flex: 1 1 auto;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="container nav-inner" aria-label="Main navigation">
+            <a class="brand" href="#home" aria-label="Khder Ahmed home">
+                KHDER<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div>
+                    <div class="availability">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        Open to Backend & Web Development Opportunities
+                    </div>
+
+                    <p class="eyebrow">Hello, I'm</p>
+
+                    <h1>Khder <span>Ahmed</span></h1>
+
+                    <p class="hero-subtitle">
+                        PHP Backend Developer
+                    </p>
+
+                    <p class="hero-description">
+                        I build web applications and backend features using PHP,
+                        Laravel, REST APIs, and relational databases. I enjoy
+                        writing organized code, solving practical problems, and
+                        developing reliable web applications.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">
+                            View My Projects
+                        </a>
+
+                        <a
+                            class="button button-secondary"
+                            href="https://github.com/KhderAhmed"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub ↗
+                        </a>
+
+                        <a class="button button-secondary" href="#contact">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <span>📍 Tartous, Syria</span>
+                        <span>💻 PHP · Laravel · REST APIs</span>
+                    </div>
+                </div>
+
+                <aside class="hero-card" aria-label="Developer code example">
+                    <div class="code-window">
+                        <div class="window-bar" aria-hidden="true">
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                        </div>
+
+                        <div class="code-content">
+<pre><span class="code-purple">class</span> <span class="code-green">Developer</span>
+{
+    <span class="code-purple">public string</span> $name =
+        <span class="code-green">'Khder Ahmed'</span>;
+
+    <span class="code-purple">public array</span> $skills = [
+        <span class="code-green">'PHP'</span>,
+        <span class="code-green">'Laravel'</span>,
+        <span class="code-green">'REST APIs'</span>,
+        <span class="code-green">'SQL'</span>,
+    ];
+
+    <span class="code-purple">public function</span> <span class="code-blue">build</span>()
+    {
+        <span class="code-purple">return</span> <span class="code-green">'Useful software'</span>;
+    }
+}</pre>
+                        </div>
+                    </div>
+
+                    <p class="hero-card-note">
+                        Focused on backend development, clean code,
+                        and continuous learning.
+                    </p>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Introduction</span>
+                    <h2>About Me</h2>
+                    <p class="section-description">
+                        A developer focused on building practical web solutions.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <article class="card about-text">
+                        <p>
+                            I am a web developer with a focus on backend
+                            development using PHP and Laravel. I work on
+                            application logic, database integration, REST APIs,
+                            and features that support reliable web applications.
+                        </p>
+
+                        <p>
+                            My learning and project work includes Laravel,
+                            relational databases, frontend integration, and
+                            application architecture. I am also developing my
+                            skills in C# and ASP.NET Core.
+                        </p>
+
+                        <p>
+                            I am interested in PHP Backend Developer,
+                            Laravel Developer, and Web Developer opportunities
+                            where I can contribute, learn, and grow as an
+                            engineer.
+                        </p>
+                    </article>
+
+                    <aside class="card">
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-label">Full Name</span>
+                                <span class="info-value">Khder Ahmed</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Tartous, Syria</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Main Focus</span>
+                                <span class="info-value">Backend Development</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Email</span>
+                                <a
+                                    class="info-value"
+                                    href="mailto:khder7897@gmail.com"
+                                >
+                                    khder7897@gmail.com
+                                </a>
+                            </li>
+
+                            <li>
+                                <span class="info-label">GitHub</span>
+                                <a
+                                    class="info-value"
+                                    href="https://github.com/KhderAhmed"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    github.com/KhderAhmed ↗
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">What I Work With</span>
+                    <h2>Technical Skills</h2>
+                    <p class="section-description">
+                        Technologies and tools used in my development work.
+                        Keep this section aligned with your actual experience.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="card skill-card">
+                        <h3>Backend Development</h3>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Eloquent ORM</span>
+                            <span class="tag">MVC</span>
+                        </div>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Databases</h3>
+                        <div class="tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Database Design</span>
+                        </div>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Frontend Development</h3>
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">Livewire</span>
+                            <span class="tag">Filament</span>
+                        </div>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Tools & Additional Technologies</h3>
+                        <div class="tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">ASP.NET Core</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Selected Work</span>
+                    <h2>Featured Projects</h2>
+                    <p class="section-description">
+                        A selection of projects demonstrating my development
+                        interests and practical skills.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="card project-card">
+                        <div class="project-top">
+                            <div class="project-icon" aria-hidden="true">
+                                BH
+                            </div>
+
+                            <span class="project-status">
+                                Graduation Project
+                            </span>
+                        </div>
+
+                        <h3>BeeHoney</h3>
+
+                        <p>
+                            A beekeeping and honey-related web project focused
+                            on organizing information and providing useful
+                            application features. The project combines web
+                            development with an AI-related component.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Livewire</span>
+                            <span class="tag">Filament</span>
+                            <span class="tag">Python</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a
+                                class="text-link"
+                                href="https://github.com/KhderAhmed/Graduation_project_BeeHoneys"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View Source Code ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="card project-card">
+                        <div class="project-top">
+                            <div class="project-icon" aria-hidden="true">
+                                API
+                            </div>
+
+                            <span class="project-status">
+                                Development
+                            </span>
+                        </div>
+
+                        <h3>WorkFlow API</h3>
+
+                        <p>
+                            A .NET learning and portfolio project focused on
+                            backend API development, organizing application
+                            code, and practicing maintainable software
+                            architecture with C# and ASP.NET Core.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">.NET</span>
+                            <span class="tag">ASP.NET Core</span>
+                            <span class="tag">REST API</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a
+                                class="text-link"
+                                href="https://github.com/KhderAhmed"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Check GitHub Repositories ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Add another project here when it is ready. -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section" id="experience">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Background</span>
+                    <h2>Education & Development</h2>
+                    <p class="section-description">
+                        My academic background and ongoing practical development.
+                    </p>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="card timeline-item">
+                        <h3>Information Technology Engineering</h3>
+
+                        <p>
+                            Tartous University
+                        </p>
+
+                        <p>
+                            Academic background in information technology
+                            and software development.
+                        </p>
+
+                        <p>
+                            <strong>Graduation project:</strong>
+                            BeeHoney.
+                        </p>
+                    </article>
+
+                    <article class="card timeline-item">
+                        <h3>Backend Development & Portfolio Projects</h3>
+
+                        <p>
+                            Practical project-based development and continuous
+                            technical learning.
+                        </p>
+
+                        <ul>
+                            <li>
+                                Building web application features with PHP
+                                and Laravel.
+                            </li>
+
+                            <li>
+                                Working with databases and backend application logic.
+                            </li>
+
+                            <li>
+                                Practicing API development with C# and ASP.NET Core.
+                            </li>
+
+                            <li>
+                                Using Git and GitHub to manage source code.
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="section" id="languages">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Communication</span>
+                    <h2>Languages</h2>
+                </div>
+
+                <div class="languages-grid">
+
+                    <article class="card language-card">
+                        <h3>Arabic</h3>
+                        <span class="language-level">Native</span>
+                    </article>
+
+                    <article class="card language-card">
+                        <h3>English</h3>
+                        <span class="language-level">
+                            Update to your actual level
+                        </span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="contact-card">
+                    <span class="eyebrow">Get In Touch</span>
+
+                    <h2>Let's Work Together</h2>
+
+                    <p>
+                        I am interested in PHP Backend Developer, Laravel
+                        Developer, and Web Developer opportunities.
+                        Feel free to contact me about suitable roles or
+                        professional collaboration.
+                    </p>
+
+                    <div class="contact-actions">
+                        <a
+                            class="button button-primary"
+                            href="mailto:khder7897@gmail.com"
+                        >
+                            Send Me an Email
+                        </a>
+
+                        <a
+                            class="button button-secondary"
+                            href="https://www.linkedin.com/in/khder-ahmed-b46274286/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn ↗
+                        </a>
+
+                        <a
+                            class="button button-secondary"
+                            href="https://github.com/KhderAhmed"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub ↗
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+
+            <p>
+                © <span id="current-year"></span> Khder Ahmed.
+                All rights reserved.
+            </p>
+
+            <div class="footer-links">
+                <a
+                    href="https://github.com/KhderAhmed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/khder-ahmed-b46274286/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a href="mailto:khder7897@gmail.com">
+                    Email
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
